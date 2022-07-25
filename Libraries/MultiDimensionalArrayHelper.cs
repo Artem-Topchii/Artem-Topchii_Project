@@ -72,40 +72,48 @@ namespace Libraries
             return (maxI, maxJ);
         }
 
-        public static int FindTheNumberThatAreGreaterThanAllTheirNeighbors(int[,] matrix)
+        public static int FindTheNumberOfElementsThatAreGreaterThanAllTheirNeighbors(int[,] matrix)
         {
-            if (matrix == null || matrix.Length == 0)
+            if (matrix == null)
             {
-                throw new ArgumentException("Empty or null matrix");
+                throw new ArgumentException("Null matrix");
             }
 
             int maxValue = 0;
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    int temp = 0;
 
-                    for (int k = i - 1; k <= i + 1; k++)
+            if (matrix.Length <= 1)
+            {
+                maxValue = 0;
+            }
+            else
+            {
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        if (k >= 0 && k <= matrix.GetLength(0) - 1)
+                        int temp = int.MinValue;
+
+                        for (int k = i - 1; k <= i + 1; k++)
                         {
-                            for (int o = j - 1; o <= j + 1; o++)
+                            if (k >= 0 && k <= matrix.GetLength(0) - 1)
                             {
-                                if (o >= 0 && o <= matrix.GetLength(1) - 1 && (k != i || o != j))
+                                for (int o = j - 1; o <= j + 1; o++)
                                 {
-                                    if (temp < matrix[k, o])
+                                    if (o >= 0 && o <= matrix.GetLength(1) - 1 && (k != i || o != j))
                                     {
-                                        temp = matrix[k, o];
+                                        if (temp < matrix[k, o])
+                                        {
+                                            temp = matrix[k, o];
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    if (matrix[i, j] > temp)
-                    {
-                        maxValue++;
+                        if (matrix[i, j] > temp)
+                        {
+                            maxValue++;
+                        }
                     }
                 }
             }
@@ -115,9 +123,9 @@ namespace Libraries
 
         public static int[,] FlipAnArrayAboutItsMainDiagonal(int[,] matrix)
         {
-            if (matrix == null || matrix.Length == 0)
+            if (matrix == null)
             {
-                throw new ArgumentException("Empty or null matrix");
+                throw new ArgumentException("Null matrix");
             }
 
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -125,6 +133,11 @@ namespace Libraries
                 for (int j = i; j < matrix.GetLength(1); j++)
                 {
                     Swap(ref matrix[i, j], ref matrix[j, i]);
+
+                    if (j == matrix.GetLength(0) - 1)
+                    {
+                        break;
+                    }
                 }
             }
 

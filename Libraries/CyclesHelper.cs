@@ -112,6 +112,11 @@ namespace Libraries
 
         public static int FindGreatestCommonDivisor(int a, int b)
         {
+            if (a == 0 || b == 0)
+            {
+                throw new ArgumentException();
+            }
+
             int greatestCommonDivisor = default;
             int absValueOfa = Math.Abs(a);
             int absValueOfb = Math.Abs(b);
@@ -144,13 +149,27 @@ namespace Libraries
         {
             int result = 0;
 
-            for (int i = 0; i <= a; i++)
+            if ( a >= 0)
             {
-                if (i * i * i == a)
+                for (int i = 0; i <= a; i++)
                 {
-                    result = i;
+                    if (i * i * i == a)
+                    {
+                        result = i;
+                    }
                 }
             }
+            else
+            {
+                for (int i = 0; i >= a; i--)
+                {
+                    if (i * i * i == a)
+                    {
+                        result = i;
+                    }
+                }
+            }
+
 
             if (result * result * result != a)
             {

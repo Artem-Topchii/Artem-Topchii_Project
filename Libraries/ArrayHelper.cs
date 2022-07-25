@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Libraries
 {
-    public class SingleDimensionalArrayHelper
+    public class ArrayHelper
     {
         public static int FindTheMinimumValue(int[] array)
         {
@@ -22,9 +22,9 @@ namespace Libraries
 
         public static int FindTheMinimumValueIndex(int[] array)
         {
-            if (array.Length == 0 || array == null)
+            if (array == null || array.Length == 0)
             {
-                throw new ArgumentException("Empty or null matrix");
+                throw new ArgumentException("Empty or null array");
             }
 
             int minValueIndex = 0;
@@ -42,9 +42,9 @@ namespace Libraries
 
         public static int FindTheMaximumValueIndex(int[] array)
         {
-            if (array.Length == 0 || array == null)
+            if (array == null || array.Length == 0)
             {
-                throw new ArgumentException("Empty or null matrix");
+                throw new ArgumentException("Empty or null array");
             }
 
             int maxValueIndex = 0;
@@ -64,7 +64,7 @@ namespace Libraries
         {
             if (array == null)
             {
-                throw new ArgumentException("Null matrix");
+                throw new ArgumentException("Null array");
             }
 
             int result = 0;
@@ -81,7 +81,7 @@ namespace Libraries
         {
             if (array == null)
             {
-                throw new ArgumentException("Null matrix");
+                throw new ArgumentException("Null array");
             }
 
             for (int i = 0, j = array.Length - 1; i < array.Length / 2; i++, j--)
@@ -96,7 +96,7 @@ namespace Libraries
         {
             if (array == null)
             {
-                throw new ArgumentException("Null matrix");
+                throw new ArgumentException("Null array");
             }
 
             int count = 0;
@@ -116,7 +116,7 @@ namespace Libraries
         {
             if (array == null)
             {
-                throw new ArgumentException("Null matrix");
+                throw new ArgumentException("Null array");
             }
 
             for (int i = 0, j = (array.Length - array.Length / 2); i < array.Length / 2; i++, j++)
@@ -131,7 +131,7 @@ namespace Libraries
         {
             if (array == null)
             {
-                throw new ArgumentException("Null matrix");
+                throw new ArgumentException("Null array");
             }
 
             for (int i = 0; i < array.Length - 1; i++)
@@ -152,7 +152,7 @@ namespace Libraries
         {
             if (array == null)
             {
-                throw new ArgumentException("Null matrix");
+                throw new ArgumentException("Null array");
             }
 
             for (int i = 0; i < array.Length - 1; i++)

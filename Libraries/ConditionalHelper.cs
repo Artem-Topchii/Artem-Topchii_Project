@@ -80,18 +80,8 @@ namespace Libraries
                 throw new ArgumentException();
             }
 
-            float x1 = default;
-            float x2 = default;
-
-            if (d > 0)
-            {
-                x1 = (float)((-b + Math.Sqrt(d)) / (2 * a));
-                x2 = (float)((-b - Math.Sqrt(d)) / (2 * a));
-            }
-            else
-            {
-                x1 = x2 = (float)(-b / (2 * a));
-            }
+            float x1 = (float)Math.Round((-b + Math.Sqrt(d)) / (2 * a), 2);
+            float x2 = (float)Math.Round((-b - Math.Sqrt(d)) / (2 * a), 2);
 
             return (x1, x2);
         }
