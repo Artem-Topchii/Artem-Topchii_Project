@@ -6,4 +6,8 @@
     <RootNamespace>Artem_Topchii_Project_Console</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\Libraries.csproj" />
+  </ItemGroup>
+
 </Project>
